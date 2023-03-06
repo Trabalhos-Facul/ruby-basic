@@ -1,10 +1,11 @@
-player = 'larry'
-playerHealth = 60
+def time
+  Time.new.strftime("%H:%M:%S")
+end
 
-puts "#{player}'s health is #{3 * playerHealth}"
+def say_hello(name, health=100)
+  "I'm #{name.capitalize} with a health of #{health} in #{time}"
+end
 
-puts playerHealth/9
-puts playerHealth/9.0
-
-
-puts "Players:\n \tlarry\n \tcurly\n \tmoe"
+puts say_hello("anna", 30)
+puts say_hello("jorge")
+puts say_hello("clara", 45)
