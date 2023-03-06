@@ -15,11 +15,15 @@ class Player
   end
 end
 
-p = Player.new("anna", 30)
-puts p
+player1 = Player.new("moe")
+player2 = Player.new("larry", 60)
+player3 = Player.new("curly", 125)
 
-p.name = "Lawrence"
-puts p.name
-puts p.health
-puts p.score
+players = [player1, player2, player3]
 
+puts "There are 3 players in the game:"
+puts players
+
+players.each do |player|
+  puts player.health
+end
