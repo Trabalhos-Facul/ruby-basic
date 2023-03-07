@@ -1,4 +1,6 @@
 class Movie
+  attr_reader :title, :rank
+
   def initialize(title, rank=0)
     @title = title.capitalize
     @rank = rank
@@ -18,35 +20,15 @@ class Movie
 
 end
 
-class Playlist
-  def initialize(name)
-    @name = name
-    @movies = []
-  end
+if __FILE__ == $0
+  movie = Movie.new("movie1")
+  puts movie.title
 
-  def add_movie(movie)
-    @movies << movie
-  end
+  movie.thumbs_up!
+  puts movie.rank
 
-  def play!
-    puts "#{@name}'s playlist:"
-    puts @movies
+  movie.thumbs_down!
+  puts movie.rank
 
-    @movies.each do |movie|
-      movie.thumbs_up!
-      puts movie
-    end
-  end
+  puts movie
 end
-
-movie1 = Movie.new("Astro", 7)
-
-playlist1 = Playlist.new("Trilogia senhor dos aneis")
-
-playlist1.add_movie(movie1)
-# playlist1.add_movie(movie2)
-# playlist1.add_movie(movie3)
-
-playlist1.play!
-
-puts movie1
