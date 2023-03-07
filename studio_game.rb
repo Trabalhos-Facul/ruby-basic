@@ -15,15 +15,28 @@ class Player
   end
 end
 
+class Game
+  def initialize(name)
+    @name = name.capitalize
+    @players = []
+  end
+
+  def add_player(new_player)
+    @players << new_player
+  end
+
+  def play
+    puts "There are #{@players.length} players in #{@name}}:"
+    puts @players
+  end
+end
+
 player1 = Player.new("moe")
 player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 
-players = [player1, player2, player3]
-
-puts "There are 3 players in the game:"
-puts players
-
-players.each do |player|
-  puts player.health
-end
+knuckleheads = Game.new("Knuckleheads")
+knuckleheads.add_player(player1)
+knuckleheads.add_player(player2)
+knuckleheads.add_player(player3)
+knuckleheads.play
