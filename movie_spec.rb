@@ -16,7 +16,7 @@ describe Movie do
   end
 
   it "has a string representation" do
-    @movie.to_s == "Goonies has a rank of 10."
+    @movie.to_s.should == "Goonies has a rank of 10(Hit)"
   end
 
   it "increased rank by 1" do
@@ -38,6 +38,34 @@ describe Movie do
 
     it "has a zero rank" do
       @movie.rank.should == 0
+    end
+  end
+
+  context "movie with a rank of at least 10" do
+    before do
+      @movie = Movie.new("goonies", 10)
+    end
+
+    it "is a hit" do
+      expect(@movie.hit?).to eq(true)
+    end
+
+    it "has a hit status" do
+      expect(@movie.status).to eq("Hit")
+    end
+  end
+
+  context "movie with a rank less than 10" do
+    before do
+      @movie = Movie.new("goonies", 8)
+    end
+
+    it "is not a hit" do
+      expect(@movie.hit?).to eq(false)
+    end
+
+    it "has a flop status" do
+      expect(@movie.status).to eq("Flop")
     end
   end
 end
