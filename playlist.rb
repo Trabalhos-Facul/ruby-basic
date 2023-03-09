@@ -15,8 +15,26 @@ class Playlist
     puts @movies
 
     @movies.each do |movie|
-      movie.thumbs_up!
+      act_thumbs = act_to_thumbs(roll_die)
+
+      if act_thumbs
+        thumbs_action = movie.method(act_thumbs)
+        thumbs_action.call
+      end
+
       puts movie
+    end
+  end
+
+  def roll_die
+    rand(1..6)
+  end
+
+  def act_to_thumbs(number_rooled)
+    if number_rooled >= 5
+      :thumbs_up!
+    elsif number_rooled < 3
+      :thumbs_down!
     end
   end
 end
