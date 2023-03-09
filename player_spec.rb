@@ -36,4 +36,11 @@ describe Player do
 
     expect(@player.health).to eq(@initial_health - 10)
   end
+
+  context "player power" do
+
+    it "is strong" do
+      
+    end
+  end
 end
