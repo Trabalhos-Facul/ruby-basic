@@ -1,4 +1,4 @@
-class Die
+class Dice
   attr_reader :number
 
   def roll

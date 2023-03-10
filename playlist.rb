@@ -15,7 +15,7 @@ class Playlist
     puts @movies
 
     @movies.each do |movie|
-      act_thumbs = act_to_thumbs(roll_die)
+      act_thumbs = act_to_thumbs(roll_dice)
 
       if act_thumbs
         thumbs_action = movie.method(act_thumbs)
@@ -26,7 +26,7 @@ class Playlist
     end
   end
 
-  def roll_die
+  def roll_dice
     rand(1..6)
   end
 

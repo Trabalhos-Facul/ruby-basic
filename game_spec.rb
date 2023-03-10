@@ -12,7 +12,7 @@ describe Game do
   end
 
   it "w00ts the player if a high number is rolled" do
-    allow_any_instance_of(Die).to receive(:roll).and_return(5)
+    allow_any_instance_of(Dice).to receive(:roll).and_return(5)
 
     @game.play
 
@@ -20,7 +20,7 @@ describe Game do
   end
 
   it "do nothing if a medium number is rolled" do
-    allow_any_instance_of(Die).to receive(:roll).and_return(3)
+    allow_any_instance_of(Dice).to receive(:roll).and_return(3)
 
     @game.play
 
@@ -28,7 +28,7 @@ describe Game do
   end
 
   it "blams the player if a low number is rolled" do
-    allow_any_instance_of(Die).to receive(:roll).and_return(2)
+    allow_any_instance_of(Dice).to receive(:roll).and_return(2)
 
     @game.play
 

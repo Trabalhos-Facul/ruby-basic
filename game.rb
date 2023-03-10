@@ -1,5 +1,5 @@
 require_relative 'player'
-require_relative 'die'
+require_relative 'dice'
 
 class Game
   def initialize(name)
@@ -13,9 +13,11 @@ class Game
 
   def play
     puts "There are #{@players.length} players in #{@name}}:"
+
+    dice = Dice.new
     @players.each do |player|
-      player.w00t if Die.new.roll >= 5
-      player.blam if Die.new.roll < 3
+      player.w00t if dice.roll >= 5
+      player.blam if dice.roll < 3
       puts @player
     end
   end
