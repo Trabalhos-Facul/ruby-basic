@@ -12,13 +12,13 @@ class Game
   end
 
   def play
-    puts "There are #{@players.length} players in #{@name}}:"
+    puts "There are #{@players.length} players in #{@name}:"
 
     dice = Dice.new
     @players.each do |player|
       player.w00t if dice.roll >= 5
       player.blam if dice.roll < 3
-      puts @player
+      puts player
     end
   end
 end
