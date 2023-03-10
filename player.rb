@@ -7,6 +7,14 @@ class Player
     @health = health
   end
 
+  def strong?
+    @health > 100
+  end
+
+  def weak?
+    !strong?
+  end
+
   def score
     @health + @name.length
   end

@@ -37,10 +37,21 @@ describe Player do
     expect(@player.health).to eq(@initial_health - 10)
   end
 
-  context "player power" do
+  context "power" do
+
+    before do
+      @player1 = Player.new("carlos", 150)
+      @player2 = Player.new("flavio", 101)
+      @player3 = Player.new("andre", 100)
+    end
 
     it "is strong" do
-      
+      expect(@player1).to be_strong
+      expect(@player2).to be_strong
+    end
+
+    it "is weak" do
+      expect(@player3).to be_weak
     end
   end
 end
