@@ -15,21 +15,21 @@ describe Playlist do
     end
 
     it "gives the movie a thumbs up if a high number is rolled" do
-      @playlist.stub(:roll_dice).and_return(5)
+      MovieReviewer.stub(:roll_dice).and_return(5)
       @playlist.play!
 
       @movie.rank.should == @initial_rank + 1
     end
 
     it "skips the movie if a medium number is rolled" do
-      @playlist.stub(:roll_dice).and_return(3)
+      MovieReviewer.stub(:roll_dice).and_return(3)
       @playlist.play!
 
       @movie.rank.should == @initial_rank
     end
 
     it "gives the movie a thumbs down if a low number is rolled" do
-      @playlist.stub(:roll_dice).and_return(1)
+      MovieReviewer.stub(:roll_dice).and_return(1)
       @playlist.play!
 
       @movie.rank.should == @initial_rank - 1
