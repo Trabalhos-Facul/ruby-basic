@@ -10,6 +10,10 @@ class Movie
     "#{@title} has a rank of #{@rank}(#{status})"
   end
 
+  def <=>(other)
+    other.rank <=> @rank
+  end
+
   def thumbs_up!
     @rank += 1
   end
