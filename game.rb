@@ -1,5 +1,5 @@
 require_relative 'player'
-require_relative 'dice'
+require_relative 'game_turn'
 
 class Game
   def initialize(name)
@@ -13,11 +13,8 @@ class Game
 
   def play
     puts "There are #{@players.length} players in #{@name}:"
-
-    dice = Dice.new
     @players.each do |player|
-      player.w00t if dice.roll >= 5
-      player.blam if dice.roll < 3
+      GameTurn.take_turn(player)
       puts player
     end
   end
