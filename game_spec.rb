@@ -13,25 +13,28 @@ describe Game do
 
   it "w00ts the player if a high number is rolled" do
     allow_any_instance_of(Dice).to receive(:roll).and_return(5)
+    rounds = 2
 
-    @game.play
+    @game.play(rounds)
 
-    @player.health.should == @initial_health + 15
+    @player.health.should == @initial_health + (15 * 2)
   end
 
   it "do nothing if a medium number is rolled" do
     allow_any_instance_of(Dice).to receive(:roll).and_return(3)
+    rounds = 2
 
-    @game.play
+    @game.play(rounds)
 
     @player.health.should == @initial_health
   end
 
   it "blams the player if a low number is rolled" do
     allow_any_instance_of(Dice).to receive(:roll).and_return(2)
+    rounds = 2
 
-    @game.play
+    @game.play(rounds)
 
-    @player.health.should == @initial_health - 10
+    @player.health.should == @initial_health - (10 * 2)
   end
 end
