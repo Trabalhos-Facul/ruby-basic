@@ -31,10 +31,11 @@ class Game
   end
 
   def statistics
-    puts "#{@name}'s High Scores:"
+    puts "#{@name}'s Scores:"
 
     @players.sort.each do |player|
-      puts "#{player.name.ljust(20, '.')} #{player.score}"
+      puts "#{player.name}'s point totals:"
+      puts "#{player.points} grand total points"
     end
   end
 end
