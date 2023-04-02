@@ -23,17 +23,10 @@ class Game
   end
 
   def statistics
-    puts "#{@name}'s statistics:"
-    strongs, weaks = @players.partition(&:strong?)
+    puts "#{@name}'s High Scores:"
 
-    puts "\nStrong players:"
-    strongs.each do |player|
-      puts "#{player.name} (#{player.health})"
-    end
-
-    puts "\nWeak players:"
-    weaks.each do |player|
-      puts "#{player.name} (#{player.health})"
+    @players.sort.each do |player|
+      puts "#{player.name.ljust(20, '.')} #{player.score}"
     end
   end
 end
