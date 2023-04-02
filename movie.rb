@@ -4,6 +4,7 @@ class Movie
   def initialize(title, rank=0)
     @title = title.capitalize
     @rank = rank
+    @snacks = Hash.new(0)
   end
 
   def to_s
@@ -30,6 +31,13 @@ class Movie
     @rank >= 10
   end
 
+  def carbs_consumed
+    @snacks.values.reduce(0, :+)
+  end
+
+  def ate_snack(snack)
+    @snacks[snack.name] += snack.carbs
+  end
 end
 
 if __FILE__ == $0
