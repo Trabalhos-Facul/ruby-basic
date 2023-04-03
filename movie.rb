@@ -7,6 +7,13 @@ class Movie
     @snacks = Hash.new(0)
   end
 
+  def each_snack
+    @snacks.each do |name, carbs|
+      snack = Snack.new(name, carbs)
+      yield(snack)
+    end
+  end
+
   def to_s
     "#{@title} has a rank of #{@rank}(#{status})"
   end
