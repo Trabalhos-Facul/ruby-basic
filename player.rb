@@ -8,6 +8,13 @@ class Player
     @found_treasure = Hash.new(0)
   end
 
+  def each_treasure
+    @found_treasure.each do |name, points|
+      treasure = Treasure.new(name, points)
+      yield(treasure)
+    end
+  end
+
   def strong?
     @health > 100
   end
