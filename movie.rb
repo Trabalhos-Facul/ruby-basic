@@ -7,11 +7,20 @@ class Movie
     @snacks = Hash.new(0)
   end
 
+  def self.from_file(line)
+    title, rank = line.split(',')
+    Movie.new(title, Integer(rank))
+  end
+
   def each_snack
     @snacks.each do |name, carbs|
       snack = Snack.new(name, carbs)
       yield(snack)
     end
+  end
+
+  def to_csv
+    "#{@title},#{@rank}"
   end
 
   def to_s
