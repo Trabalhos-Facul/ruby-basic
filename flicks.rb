@@ -1,9 +1,5 @@
 require_relative 'playlist'
 
-movie1 = Movie.new("Astro", 7)
-movie2 = Movie.new("Titanic", 10)
-movie3 = Movie.new("Matrix", 5)
-
 playlist1 = Playlist.new("Trilogia senhor dos aneis")
 
 playlist1.load(ARGV.shift || "movies.csv")
