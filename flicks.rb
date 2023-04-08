@@ -1,18 +1,21 @@
 require_relative 'playlist'
+require_relative 'movie_3d'
 
-playlist1 = Playlist.new("Trilogia senhor dos aneis")
+playlist = Playlist.new("Trilogia senhor dos aneis")
 
-playlist1.load(ARGV.shift || "movies.csv")
+playlist.load(ARGV.shift || "movies.csv")
+movie3d = Movie3D.new("glee", 5, 3)
+playlist.add_movie(movie3d)
 
 loop do
   puts "\nHow many viewings?"
   answer = gets.chomp.downcase
 
   if answer =~ /^\d+$/
-    playlist1.play!(answer.to_i)
+    playlist.play!(answer.to_i)
 
   elsif %w[quit exit].include?(answer)
-    playlist1.print_stats
+    playlist.print_stats
     break
 
   else
@@ -20,4 +23,4 @@ loop do
   end
 end
 
-playlist1.save
+playlist.save
