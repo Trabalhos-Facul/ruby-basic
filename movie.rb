@@ -1,5 +1,9 @@
+require_relative 'rankable'
 class Movie
-  attr_reader :title, :rank
+  include Rankable
+
+  attr_accessor :rank
+  attr_reader :title
 
   def initialize(title, rank=0)
     @title = title.capitalize
@@ -25,26 +29,6 @@ class Movie
 
   def to_s
     "#{@title} has a rank of #{@rank}(#{status})"
-  end
-
-  def <=>(other)
-    other.rank <=> @rank
-  end
-
-  def thumbs_up!
-    @rank += 1
-  end
-
-  def thumbs_down!
-    @rank -= 1
-  end
-
-  def status
-    hit? ? "Hit" : "Flop"
-  end
-
-  def hit?
-    @rank >= 10
   end
 
   def carbs_consumed
